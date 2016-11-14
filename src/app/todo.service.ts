@@ -35,7 +35,8 @@ export class TodoService {
     if (!todo) {
       return null;
     }
-    Object.assign(todo, values);
+    //Object.assign(todo, values);
+    (<any>Object).assign(todo, values);
     return todo;
   }
 
