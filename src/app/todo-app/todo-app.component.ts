@@ -36,5 +36,5 @@ export class TodoAppComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
+
