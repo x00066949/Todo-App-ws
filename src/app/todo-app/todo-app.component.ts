@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
+
 import {Todo} from '../todo';
 import {TodoService} from '../todo.service';
 
@@ -18,7 +21,7 @@ export class TodoAppComponent implements OnInit {
   constructor(private todoService: TodoService) { }
 
   addTodo() {
-    this.todoService.addTodo(this.newTodo);
+    this.todoService.create(this.newTodo);
     this.newTodo = new Todo();
   }
 
@@ -27,11 +30,11 @@ export class TodoAppComponent implements OnInit {
   }
 
   removeTodo(todo) {
-    this.todoService.deleteTodoById(todo.id);
+    this.todoService.remove(todo.id);
   }
 
   get todos() {
-    return this.todoService.getAllTodos();
+    return this.todoService.loadAll();
   }
 
   ngOnInit() {
